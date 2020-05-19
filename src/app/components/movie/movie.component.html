@@ -1,0 +1,42 @@
+<p>movie works!</p>
+
+hente alle movies i en løkke struktur
+
+<form (ngSubmit)="postMovie()">
+<label>Title</label><input type="text" name="title" [(ngModel)]="title" placeholder="add title">
+<br><label class="label2">MovieLength</label> <input type="text" name="movieLength" [(ngModel)]="movieLength" placeholder="add movieLength">
+<br><label class="label2">ReleaseDate</label> <input type="text" name="releaseDate" [(ngModel)]="releaseDate" placeholder="mm-dd-yyyy">
+<br><label class="label2">Director</label> <input type="text" name="director" [(ngModel)]="director" placeholder="add director">
+<br><label class="label2">Description</label> <input type="text" name="description" [(ngModel)]="description" placeholder="add description">
+<br><label class="label2">ImgUrl</label> <input type="text" name="imgUrl" [(ngModel)]="imgUrl" placeholder="add imgUrl">
+<br><label class="label2">Url</label> <input type="text" name="url" [(ngModel)]="url" placeholder="add url">
+<br><label class="label2">AgeToWatch</label> <input type="text" name="ageToWatch" [(ngModel)]="ageToWatch" placeholder="add ageToWatch">
+<select [(ngModel)]="temp" name="temp" multiple>
+  <option *ngFor="let genreObject of genres" [value]="genreObject.genreId">{{genreObject.genreName}}</option>
+</select>
+<input type="submit" value="Add Movie">
+
+
+
+</form>
+<!--
+[
+    {
+        "genreId": 1,
+        "genreName": "Komedie",
+        "moviegenre": null
+    },
+    {
+        "genreId": 2,
+        "genreName": "Action",
+        "moviegenre": null
+    }
+] -->
+
+
+
+<div *ngFor="let movieObject of movies">
+MovieId {{movieObject.movieId}} | Title  {{movieObject.title}}
+<!-- <button (click)="deleteMovie(5)">Delete</button> -->
+<button (click)="deleteMovie(movieObject.movieId)">Delete</button>
+</div>

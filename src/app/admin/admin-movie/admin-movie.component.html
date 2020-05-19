@@ -1,0 +1,17 @@
+<p>admin-movie works!</p>
+
+<div>
+  <label for="">movieLength</label> <input type="text" [(ngModel)]="movie.movieLength">
+  <label for="">releaseDate</label> <input type="text" [(ngModel)]="movie.releaseDate">
+  <label for="">titel</label>       <input type="text" [(ngModel)]="movie.title">
+  <label for="">director</label>    <input type="text" [(ngModel)]="movie.director">
+  <label for="">description</label> <input type="text" [(ngModel)]="movie.description">
+  <label for="">imgUrl</label>      <input type="text" [(ngModel)]="movie.imgUrl">
+  <label for="">url</label>         <input type="text" [(ngModel)]="movie.url">
+  <label for="">ageToWatch</label>  <input type="text" [(ngModel)]="movie.ageToWatch">
+  <!-- <label for="">moviegenre</label>  <input type="text" [(ngModel)]="movie.mov"> -->
+  <button>Create</button>
+  <button (click)=updateMovie()>Update</button>
+  <button>Delete</button>
+  <button (click)=searchMovie()>Search</button>
+</div>

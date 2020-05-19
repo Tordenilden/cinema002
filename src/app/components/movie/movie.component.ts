@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/model/Movie';
 import { Genre } from 'src/app/model/Genre';
 import { HttpService } from 'src/app/service/http.service';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -28,7 +29,7 @@ export class MovieComponent implements OnInit {
   // DP (Design Princip) (thoughts)
   // DI (Dependency Injection / Design pattern)  (implementation)
   //
-  constructor(private service:HttpService) { }
+  constructor(private service:HttpService, private router:Router) { }
 
   ngOnInit(): void {
     // get all movies
@@ -98,6 +99,21 @@ export class MovieComponent implements OnInit {
   }
   svar(arg:Movie[]){
     this.movies=arg; // hvad sker der her??
-
   }
+
+    // illudere en queryParam situation
+    allShowToMovie(movieObjectToShow:Movie){
+      console.log(movieObjectToShow);
+      //return;
+      // wants a new component to go to
+      // how do I go to another component?
+      //https://stackoverflow.com/questions/36835123/how-do-i-pass-data-to-angular-routed-components
+      let tempParams: NavigationExtras = {
+        queryParams: {
+            "dataMovie": JSON.stringify(movieObjectToShow)
+        }
+      };
+      this.router.navigate(["show"], tempParams )
+    }// end method allShowToMovie
+
 }

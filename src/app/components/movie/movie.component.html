@@ -36,7 +36,8 @@ hente alle movies i en løkke struktur
 
 
 <div *ngFor="let movieObject of movies">
-MovieId {{movieObject.movieId}} | Title  {{movieObject.title}}
+<button (click)="allShowToMovie(movieObject)">see all shows</button>
+  MovieId {{movieObject.movieId}} | Title  {{movieObject.title}}
 <!-- <button (click)="deleteMovie(5)">Delete</button> -->
 <button (click)="deleteMovie(movieObject.movieId)">Delete</button>
 </div>

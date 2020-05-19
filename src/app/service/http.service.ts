@@ -44,11 +44,25 @@ export class HttpService {
     return this.http.post<Movie>(`${this.urlStart}movies`, movieToAdd, httpOptions);
   }
 
-  // delete Movie
+  // delete Movie    // https://localhost:44324/api/movies/1
   deleteMovie(movieToDelete:number):Observable<Movie>{
     return this.http.delete<Movie>(`${this.urlStart}movies/${movieToDelete}`, httpOptions);
   }
- // https://localhost:44324/api/movies/1
+
+  // update movie
+  // updateMovie(movieIdFromHtml:number):Observable<Movie>{
+  //   return this.http.put<Movie>(`${this.urlStart}movies/${movieIdFromHtml}`, object der skal opdateres , httpOptions);
+  // }
+  updateMovie(movieIdFromHtml:number, movieToUpdate:Movie):Observable<Movie>{
+    return this.http.put<Movie>(`${this.urlStart}movies/${movieIdFromHtml}`, movieToUpdate , httpOptions);
+  }
+  // search movieByTitle
+  searchMovie(searchMovie:string):Observable<Movie>{
+    return this.http.get<Movie>(`${this.urlStart}movies/search?title=${searchMovie}`, httpOptions);
+  }
+ // https://localhost:44324/api/movies/search?title=Tarzan&actor=Bente
+
+
 
 }
 /**
